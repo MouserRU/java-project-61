@@ -1,12 +1,14 @@
-# java-package
+### java-package
 
-https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=alert_status
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
 
-https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=bugs
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=bugs)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
 
-https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=code_smells
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
 
-https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=duplicated_lines_density
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=coverage)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
+
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/MouserRU/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/MouserRU/java-project-61/actions)
