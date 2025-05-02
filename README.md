@@ -12,3 +12,7 @@
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/MouserRU/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/MouserRU/java-project-61/actions)
+
+
+### asciinema demo files:
+[Игра Even](https://asciinema.org/a/717753)
