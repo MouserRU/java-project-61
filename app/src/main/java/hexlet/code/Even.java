@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Even {
     // Логика игры Even
     static void game() {
-        final String playerName = greeting(); // Переменная хранящая имя игрока
+        String playerName = greeting(); // Переменная хранящая имя игрока
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Random rnd = new Random();
         Scanner scanner = new Scanner(System.in);
