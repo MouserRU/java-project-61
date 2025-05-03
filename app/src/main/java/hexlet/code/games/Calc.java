@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class Calc {
 
@@ -11,7 +11,7 @@ public class Calc {
 
     // Метод производит игровое действие
     public static String question(StringBuilder rightAnswer) {
-        Random rnd = new Random();
+        SecureRandom rnd = new SecureRandom();
         int operator = rnd.nextInt(3); // Номер математического оператора
         String operatorSting = switch (operator) {
             case 0 -> "+";
