@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class Even {
 
@@ -11,7 +11,7 @@ public class Even {
 
     // Метод производит игровое действие
     public static String question(StringBuilder rightAnswer) {
-        Random rnd = new Random();
+        SecureRandom rnd = new SecureRandom()m();
         int number = rnd.nextInt(100) + 1; // Переменная условия инициализированная случайным числом
         if (number % 2 == 0) {
             rightAnswer.append("yes");
