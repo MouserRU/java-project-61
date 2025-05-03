@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class Even {
@@ -8,7 +8,7 @@ public class Even {
     static void game() {
         String playerName = greeting(); // Переменная хранящая имя игрока
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Random rnd = new Random();
+        SecureRandom rnd = new SecureRandom();
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 3; i++) {
             int number = rnd.nextInt(100) + 1; // Переменная условия инициализированная случайным числом
