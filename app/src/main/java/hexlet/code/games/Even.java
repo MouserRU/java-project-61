@@ -6,7 +6,8 @@ public class Even {
 
     // Метод возвращает условие игры
     public static String introductoryNote() { // Метод получает параметр содержащий имя игры
-        return "\"Answer 'yes' if the number is even, otherwise answer 'no'.\"?";
+        String string = "\"Answer 'yes' if the number is even, otherwise answer 'no'.\"?";
+        return string;
     }
 
     // Метод формирует вопрос и правильный ответ

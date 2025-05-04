@@ -6,7 +6,8 @@ public class Calc {
 
     // Метод возвращает условие игры
     public static String introductoryNote() { // Метод получает параметр содержащий имя игры
-        return "What is the result of the expression?";
+        String string = "What is the result of the expression?";
+        return string;
     }
 
     // Метод формирует вопрос и правильный ответ
@@ -18,7 +19,8 @@ public class Calc {
             case 1 -> "-";
             default -> "*";
         };
-        int number1, number2;
+        int number1;
+        int number2;
         if(operator == 2) {
             number1 = rnd.nextInt(21) - 10; // получение первого числа в диапазоне от -10 до 10 для
                     // операции умножения
