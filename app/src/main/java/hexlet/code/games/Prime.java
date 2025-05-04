@@ -1,0 +1,29 @@
+package hexlet.code.games;
+
+import java.security.SecureRandom;
+
+public class Prime {
+
+    // Метод возвращает условие игры
+    public static String introductoryNote() { // Метод получает параметр содержащий имя игры
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    }
+
+    // Метод формирует вопрос и правильный ответ
+    public static String question(StringBuilder rightAnswer) {
+        SecureRandom rnd = new SecureRandom();
+        int number = rnd.nextInt(100) + 1;
+
+        // проверяем number на простоту
+        boolean isPrime = true;
+        for (int i = 2; i <= (int) Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        rightAnswer.append(isPrime ? "yes" : "no");
+        return String.valueOf(number);
+    }
+
+}
