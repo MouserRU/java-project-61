@@ -15,6 +15,8 @@
 
 
 ### asciinema demo files:
-[Игра Even](https://asciinema.org/a/717753)
+[Игра Even](https://asciinema.org/a/717955)
 
-[Игра Calc](https://asciinema.org/a/717883)
+[Игра Calc](https://asciinema.org/a/717956)
+
+[Игра CGD](https://asciinema.org/a/717960)
