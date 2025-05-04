@@ -38,7 +38,14 @@ public class Engine {
                 case "Progression": {
                     note = Progression.introductoryNote();
                     question = Progression.question(rightAnswer);
+                    break;
                 }
+                case "Prime": {
+                    note = Prime.introductoryNote();
+                    question = Prime.question(rightAnswer);
+                    break;
+                }
+                default: return;
             }
             System.out.println(note);
             System.out.println("Question: " + question);
