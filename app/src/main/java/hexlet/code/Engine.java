@@ -35,6 +35,10 @@ public class Engine {
                     question = Gcd.question(rightAnswer);
                     break;
                 }
+                case "Progression": {
+                    note = Progression.introductoryNote();
+                    question = Progression.question(rightAnswer);
+                }
             }
             System.out.println(note);
             System.out.println("Question: " + question);
