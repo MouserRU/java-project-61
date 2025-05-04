@@ -23,4 +23,4 @@
 
 [Игра Progression](https://asciinema.org/a/717987)
 
-[Игра](https://asciinema.org/a/718006)
+[Игра Prime](https://asciinema.org/a/718006)
