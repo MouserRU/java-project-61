@@ -6,8 +6,7 @@ public class Progression {
 
     // Метод возвращает условие игры
     public static String introductoryNote() { // Метод получает параметр содержащий имя игры
-        String string = "Find the greatest common divisor of given numbers.";
-        return string;
+        return "Find the greatest common divisor of given numbers.";
     }
 
     // Метод формирует вопрос и правильный ответ
