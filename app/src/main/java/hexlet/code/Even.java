@@ -31,7 +31,7 @@ public class Even {
     static String greeting() {
         String playerName;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
         playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
