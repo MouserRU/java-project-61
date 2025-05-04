@@ -19,8 +19,8 @@ public class Even {
             if (playerAnswer.equals(rightAnswer)) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '" + rightAnswer + "'.\n" +
-                        "Let's try again, " + playerName + "!");
+                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + rightAnswer + "'.\n" + "Let's try again, " + playerName + "!");
                 return;
             }
         }

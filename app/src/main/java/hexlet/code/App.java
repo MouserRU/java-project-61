@@ -22,6 +22,9 @@ public class App {
             case "4" -> Engine.engine("GCD");
             case "5" -> Engine.engine("Progression");
             case "6" -> Engine.engine("Prime");
+            default -> {
+                return;
+            }
         }
     }
 }

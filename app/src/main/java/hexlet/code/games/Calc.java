@@ -18,11 +18,12 @@ public class Calc {
             case 1 -> "-";
             default -> "*";
         };
-        int number1, number2;
-        if(operator == 2) {
+        int number1;
+        int number2;
+        if (operator == 2) {
             number1 = rnd.nextInt(21) - 10; // получение первого числа в диапазоне от -10 до 10 для
                     // операции умножения
-            number2 = rnd.nextInt(21) -10; // получение второго числа в диапазоне от -10 до 10 для
+            number2 = rnd.nextInt(21) - 10; // получение второго числа в диапазоне от -10 до 10 для
                     // операции умножения
         } else {
             number1 = rnd.nextInt(201) - 100; // получение первого числа в диапазоне от -100 до 100 для
@@ -32,12 +33,13 @@ public class Calc {
         }
 
         // Формирование правильного ответа
-        rightAnswer.append(switch (operator) {
-                    case 0 -> String.valueOf(number1 + number2);
-                    case 1 -> String.valueOf(number1 - number2);
-                    default -> String.valueOf(number1 * number2);
-                }
-          );
+        rightAnswer.append(
+            switch (operator) {
+                case 0 -> String.valueOf(number1 + number2);
+                case 1 -> String.valueOf(number1 - number2);
+                default -> String.valueOf(number1 * number2);
+            }
+        );
         return number1 + " " + operatorSting + " " + number2; // Формирование строки с заданием
     }
 

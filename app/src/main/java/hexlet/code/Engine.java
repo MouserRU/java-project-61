@@ -1,8 +1,12 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import hexlet.code.games.*;
 import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 
 public class Engine {
 
@@ -15,36 +19,31 @@ public class Engine {
         for (int i = 0; i < numberOfRounds; i++) {
 
             String note = ""; // Строковая переменная хранящая условие игры
-            String question =""; // Строковая переменная хранящая вопрос
+            String question = ""; // Строковая переменная хранящая вопрос
             StringBuilder rightAnswer = new StringBuilder(); // Переменная хранящая правильный ответ
 
 
             switch (nameOfTheGame) {
-                case "Even": {
+                case "Even":
                     note = Even.introductoryNote();
                     question = Even.question(rightAnswer);
                     break;
-                }
-                case "Calc": {
+                case "Calc":
                     note = Calc.introductoryNote();
                     question = Calc.question(rightAnswer);
                     break;
-                }
-                case "GCD": {
+                case "GCD":
                     note = Gcd.introductoryNote();
                     question = Gcd.question(rightAnswer);
                     break;
-                }
-                case "Progression": {
+                case "Progression":
                     note = Progression.introductoryNote();
                     question = Progression.question(rightAnswer);
                     break;
-                }
-                case "Prime": {
+                case "Prime":
                     note = Prime.introductoryNote();
                     question = Prime.question(rightAnswer);
                     break;
-                }
                 default: return;
             }
             System.out.println(note);

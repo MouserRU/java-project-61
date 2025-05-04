@@ -12,7 +12,7 @@ public class Progression {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        final int lenProgression = rnd.nextInt(10) +6; // устанавливаем длину прогрессии 6..15 номеров
+        final int lenProgression = rnd.nextInt(10) + 6; // устанавливаем длину прогрессии 6..15 номеров
         final int step = rnd.nextInt(10) + 1; // Шаг прогрессии
         int sequenceNumber = rnd.nextInt(lenProgression); // Порядковый номер искомого числа
         String stringProgression = ""; // Строка хранящая прогрессию
