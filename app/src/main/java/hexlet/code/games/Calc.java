@@ -9,7 +9,7 @@ public class Calc {
         return "What is the result of the expression?";
     }
 
-    // Метод производит игровое действие
+    // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
         int operator = rnd.nextInt(3); // Номер математического оператора
