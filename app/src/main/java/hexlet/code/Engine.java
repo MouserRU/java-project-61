@@ -23,10 +23,17 @@ public class Engine {
                 case "Even": {
                     note = Even.introductoryNote();
                     question = Even.question(rightAnswer);
+                    break;
                 }
                 case "Calc": {
                     note = Calc.introductoryNote();
                     question = Calc.question(rightAnswer);
+                    break;
+                }
+                case "GCD": {
+                    note = Gcd.introductoryNote();
+                    question = Gcd.question(rightAnswer);
+                    break;
                 }
             }
             System.out.println(note);
@@ -53,7 +60,7 @@ public class Engine {
 
     static String greeting() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
         final String playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
