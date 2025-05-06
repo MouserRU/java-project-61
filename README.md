@@ -21,6 +21,6 @@
 
 [Игра CGD](https://asciinema.org/a/717960)
 
-[Игра Progression](https://asciinema.org/a/717987)
+[Игра Progression](https://asciinema.org/a/718215)
 
 [Игра Prime](https://asciinema.org/a/718006)
