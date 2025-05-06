@@ -10,8 +10,10 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         SecureRandom rnd = new SecureRandom();
         Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < 3; i++) {
-            int number = rnd.nextInt(100) + 1; // Переменная условия инициализированная случайным числом
+        int numberOfRounds =3; // Количество раундов
+        for (int i = 0; i < numberOfRounds; i++) {
+            int maxNumber; // Максимальное значение числа из условия игры
+            int number = rnd.nextInt(100) + 1; // Переменная условия получает значение от 1 до 1 до maxNumber
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             String playerAnswer = scanner.nextLine(); // Переменная содержащая ответ игрока
