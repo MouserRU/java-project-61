@@ -6,7 +6,7 @@ public class Progression {
 
     // Метод возвращает условие игры
     public static String introductoryNote() { // Метод получает параметр содержащий имя игры
-        return "Find the greatest common divisor of given numbers.";
+        return "What number is missing in the progression?";
     }
 
     // Метод формирует вопрос и правильный ответ
