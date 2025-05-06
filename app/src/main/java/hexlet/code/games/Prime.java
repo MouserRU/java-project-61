@@ -12,7 +12,8 @@ public class Prime {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        int number = rnd.nextInt(100) + 1;
+        int maxNumber = 100; // Максимальное значение числа из условия игры
+        int number = rnd.nextInt(maxNumber) + 1; // Переменная условия получает значение от 1 до 1 до maxNumber
 
         // проверяем number на простоту
         boolean isPrime = true;

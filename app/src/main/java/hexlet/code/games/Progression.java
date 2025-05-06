@@ -15,18 +15,19 @@ public class Progression {
         final int lenProgression = rnd.nextInt(10) + 6; // устанавливаем длину прогрессии 6..15 номеров
         final int step = rnd.nextInt(10) + 1; // Шаг прогрессии
         int sequenceNumber = rnd.nextInt(lenProgression); // Порядковый номер искомого числа
-        String stringProgression = ""; // Строка хранящая прогрессию
-        int number = rnd.nextInt(10); // Задаём первое число прогрессии
+        StringBuilder stringProgression = new StringBuilder(); // Строка хранящая прогрессию
+        int maxNumber = 10; // Максимальное значение первого чмсла прогресии
+        int number = rnd.nextInt(maxNumber); // Задаём первое число прогрессии
         for (int i = 0; i < lenProgression; i++) {
             if (i != sequenceNumber) {
-                stringProgression += (number + " ");
+                stringProgression.append(number).append(" ");
                 number += step;
             } else {
-                stringProgression += ".. ";
-                rightAnswer = rightAnswer.append(number);
+                stringProgression.append(".. ");
+                rightAnswer.append(number);
                 number += step;
             }
         }
-        return stringProgression;
+        return stringProgression.toString();
     }
 }

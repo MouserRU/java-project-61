@@ -12,9 +12,11 @@ public class Gcd {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        int m = rnd.nextInt(10) + 1; // Общий множитель
-        int number1 = (rnd.nextInt(10) + 1) * m; // Первое число
-        int number2 = (rnd.nextInt(10) + 1) * m; // Второе число
+        int maxNumber = 10; // Максимальное значение числа из условия игры
+        int maxM = 10; // максимальное значение множителя
+        int m = rnd.nextInt(maxM) + 1; // Общий множитель
+        int number1 = (rnd.nextInt(maxNumber) + 1) * m; // Первое число
+        int number2 = (rnd.nextInt(maxNumber) + 1) * m; // Второе число
 
         // Вычисление НОД
         int gcd = 1;
@@ -31,7 +33,7 @@ public class Gcd {
             }
         }
 
-        rightAnswer = rightAnswer.append(gcd);
+        rightAnswer.append(gcd);
         return number1 + " " + number2;
     }
 }

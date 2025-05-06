@@ -12,7 +12,10 @@ public class Calc {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        int operator = rnd.nextInt(3); // Номер математического оператора
+        int range; // Переменная для определения диапазона случайного числа
+        int offset; // Переменная для смещения случайного числа в минус
+        range = 3; // Число математических операций
+        int operator = rnd.nextInt(range); // Получаем номер математического оператора
         String operatorSting = switch (operator) {
             case 0 -> "+";
             case 1 -> "-";
@@ -21,14 +24,18 @@ public class Calc {
         int number1;
         int number2;
         if (operator == 2) {
-            number1 = rnd.nextInt(21) - 10; // получение первого числа в диапазоне от -10 до 10 для
+            range = 21;
+            offset = 10;
+            number1 = rnd.nextInt(range) - offset; // получение первого числа в диапазоне от -10 до 10 для
                     // операции умножения
-            number2 = rnd.nextInt(21) - 10; // получение второго числа в диапазоне от -10 до 10 для
+            number2 = rnd.nextInt(range) - offset; // получение второго числа в диапазоне от -10 до 10 для
                     // операции умножения
         } else {
-            number1 = rnd.nextInt(201) - 100; // получение первого числа в диапазоне от -100 до 100 для
+            range = 201;
+            offset = 100;
+            number1 = rnd.nextInt(range) - offset; // получение первого числа в диапазоне от -100 до 100 для
                     // операций сложения и вычитания
-            number2 = rnd.nextInt(201) - 100; // получение первого числа в диапазоне от -100 до 100 для
+            number2 = rnd.nextInt(range) - offset; // получение первого числа в диапазоне от -100 до 100 для
                     // операций сложения и вычитания
         }
 
