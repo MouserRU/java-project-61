@@ -12,8 +12,8 @@ public class Even {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        int maxNumber = 100; // Максимальное значение числа из условия игры
-        int number = rnd.nextInt(maxNumber) + 1; // Переменная условия инициализированная случайным числом
+        final int RANGE = 100; // Диапазон для генерации числа из условия игры
+        int number = rnd.nextInt(RANGE) + 1; // Переменная условия
         if (number % 2 == 0) {
             rightAnswer.append("yes");
         } else {

@@ -12,10 +12,12 @@ public class Calc {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        int range; // Переменная для определения диапазона случайного числа
-        int offset; // Переменная для смещения случайного числа в минус
-        range = 3; // Число математических операций
-        int operator = rnd.nextInt(range); // Получаем номер математического оператора
+        final int RANGE_1 = 21; // Диапазон для генерации числа из условия игры для операции умножения
+        final int OFFSET_1 = -10; // Смещение числа в минус для операции умножения
+        final int RANGE_2 = 201; // Диапазон для генерации числа из условия игры для операций сложения и вычитания
+        final int OFFSET_2 = -100; // Смещение числа в минус для операций сложения и вычтания
+        final int NUMBER_MATTH = 3; // Число математических операций
+        int operator = rnd.nextInt(NUMBER_MATTH); // Получаем номер математического оператора
         String operatorSting = switch (operator) {
             case 0 -> "+";
             case 1 -> "-";
@@ -24,18 +26,14 @@ public class Calc {
         int number1;
         int number2;
         if (operator == 2) {
-            range = 21;
-            offset = 10;
-            number1 = rnd.nextInt(range) - offset; // получение первого числа в диапазоне от -10 до 10 для
+            number1 = rnd.nextInt(RANGE_1) + OFFSET_1; // получение первого числа в диапазоне от -10 до 10 для
                     // операции умножения
-            number2 = rnd.nextInt(range) - offset; // получение второго числа в диапазоне от -10 до 10 для
+            number2 = rnd.nextInt(RANGE_1) + OFFSET_1; // получение второго числа в диапазоне от -10 до 10 для
                     // операции умножения
         } else {
-            range = 201;
-            offset = 100;
-            number1 = rnd.nextInt(range) - offset; // получение первого числа в диапазоне от -100 до 100 для
+            number1 = rnd.nextInt(RANGE_2) + OFFSET_2; // получение первого числа в диапазоне от -100 до 100 для
                     // операций сложения и вычитания
-            number2 = rnd.nextInt(range) - offset; // получение первого числа в диапазоне от -100 до 100 для
+            number2 = rnd.nextInt(RANGE_2) + OFFSET_2; // получение первого числа в диапазоне от -100 до 100 для
                     // операций сложения и вычитания
         }
 

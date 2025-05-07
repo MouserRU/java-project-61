@@ -12,20 +12,22 @@ public class Progression {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        final int lenProgression = rnd.nextInt(10) + 6; // устанавливаем длину прогрессии 6..15 номеров
-        final int step = rnd.nextInt(10) + 1; // Шаг прогрессии
-        int sequenceNumber = rnd.nextInt(lenProgression); // Порядковый номер искомого числа
+        final int RANGE = 10; // Диапазон дла получения случайнолго числа
+        final int MIN_LENGTH_PROGRESSION = 6; // Минимальная длина прогрессии
+        final int LENGTH_PROGRESSION = rnd.nextInt(RANGE) + MIN_LENGTH_PROGRESSION; // устанавливаем длину
+                // прогрессии 6..15 номеров
+        final int STEP_PROGRESSION = rnd.nextInt(RANGE) + 1; // Шаг прогрессии
+        int sequenceNumber = rnd.nextInt(LENGTH_PROGRESSION); // Порядковый номер искомого числа
         StringBuilder stringProgression = new StringBuilder(); // Строка хранящая прогрессию
-        int maxNumber = 10; // Максимальное значение первого чмсла прогресии
-        int number = rnd.nextInt(maxNumber); // Задаём первое число прогрессии
-        for (int i = 0; i < lenProgression; i++) {
+        int number = rnd.nextInt(RANGE); // Задаём первое число прогрессии
+        for (int i = 0; i < LENGTH_PROGRESSION; i++) {
             if (i != sequenceNumber) {
                 stringProgression.append(number).append(" ");
-                number += step;
+                number += STEP_PROGRESSION;
             } else {
                 stringProgression.append(".. ");
                 rightAnswer.append(number);
-                number += step;
+                number += STEP_PROGRESSION;
             }
         }
         return stringProgression.toString();
