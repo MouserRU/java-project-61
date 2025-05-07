@@ -10,9 +10,9 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         SecureRandom rnd = new SecureRandom();
         Scanner scanner = new Scanner(System.in);
-        final int NUMBER_OF_ROUNDS = 3; // Количество раундов
+        final int nunberOfRounds = 3; // Количество раундов
         final int RANGE = 100; // Диапазон для генерации числа из условия игры``
-        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
+        for (int i = 0; i < nunberOfRounds; i++) {
             int number = rnd.nextInt(RANGE) + 1; // Переменная условия получает значение от 1 до 1 до maxNumber
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");

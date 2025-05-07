@@ -12,11 +12,11 @@ public class Gcd {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        final int RANGE = 10; // Диапазон для генерации числа из условия игры
-        final int RANGE_MULT = 10; // Диапазон для генерации множителя
-        int mult = rnd.nextInt(RANGE_MULT) + 1; // Общий множитель
-        int number1 = (rnd.nextInt(RANGE) + 1) * mult; // Первое число
-        int number2 = (rnd.nextInt(RANGE) + 1) * mult; // Второе число
+        final int range = 10; // Диапазон для генерации числа из условия игры
+        final int rangeMult = 10; // Диапазон для генерации множителя
+        int mult = rnd.nextInt(rangeMult) + 1; // Общий множитель
+        int number1 = (rnd.nextInt(range) + 1) * mult; // Первое число
+        int number2 = (rnd.nextInt(range) + 1) * mult; // Второе число
 
         // Вычисление НОД
         int gcd = 1;

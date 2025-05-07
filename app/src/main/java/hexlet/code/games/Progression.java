@@ -12,14 +12,14 @@ public class Progression {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        final int RANGE = 10; // Диапазон дла получения случайнолго числа
-        final int MIN_LENGTH_PROGRESSION = 6; // Минимальная длина прогрессии
-        final int LENGTH_PROGRESSION = rnd.nextInt(RANGE) + MIN_LENGTH_PROGRESSION; // устанавливаем длину
+        final int range = 10; // Диапазон дла получения случайнолго числа
+        final int minLengthProgression = 6; // Минимальная длина прогрессии
+        final int LENGTH_PROGRESSION = rnd.nextInt(range) + minLengthProgression; // устанавливаем длину
                 // прогрессии 6..15 номеров
-        final int STEP_PROGRESSION = rnd.nextInt(RANGE) + 1; // Шаг прогрессии
+        final int STEP_PROGRESSION = rnd.nextInt(range) + 1; // Шаг прогрессии
         int sequenceNumber = rnd.nextInt(LENGTH_PROGRESSION); // Порядковый номер искомого числа
         StringBuilder stringProgression = new StringBuilder(); // Строка хранящая прогрессию
-        int number = rnd.nextInt(RANGE); // Задаём первое число прогрессии
+        int number = rnd.nextInt(range); // Задаём первое число прогрессии
         for (int i = 0; i < LENGTH_PROGRESSION; i++) {
             if (i != sequenceNumber) {
                 stringProgression.append(number).append(" ");
