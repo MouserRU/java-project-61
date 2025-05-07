@@ -14,20 +14,20 @@ public class Progression {
         SecureRandom rnd = new SecureRandom();
         final int range = 10; // Диапазон дла получения случайнолго числа
         final int minLengthProgression = 6; // Минимальная длина прогрессии
-        final int LENGTH_PROGRESSION = rnd.nextInt(range) + minLengthProgression; // устанавливаем длину
+        final int lengthProgression = rnd.nextInt(range) + minLengthProgression; // устанавливаем длину
                 // прогрессии 6..15 номеров
-        final int STEP_PROGRESSION = rnd.nextInt(range) + 1; // Шаг прогрессии
-        int sequenceNumber = rnd.nextInt(LENGTH_PROGRESSION); // Порядковый номер искомого числа
+        final int stepProgression = rnd.nextInt(range) + 1; // Шаг прогрессии
+        int sequenceNumber = rnd.nextInt(lengthProgression); // Порядковый номер искомого числа
         StringBuilder stringProgression = new StringBuilder(); // Строка хранящая прогрессию
         int number = rnd.nextInt(range); // Задаём первое число прогрессии
-        for (int i = 0; i < LENGTH_PROGRESSION; i++) {
+        for (int i = 0; i < lengthProgression; i++) {
             if (i != sequenceNumber) {
                 stringProgression.append(number).append(" ");
-                number += STEP_PROGRESSION;
+                number += stepProgression;
             } else {
                 stringProgression.append(".. ");
                 rightAnswer.append(number);
-                number += STEP_PROGRESSION;
+                number += stepProgression;
             }
         }
         return stringProgression.toString();

@@ -11,9 +11,9 @@ public class Even {
         SecureRandom rnd = new SecureRandom();
         Scanner scanner = new Scanner(System.in);
         final int nunberOfRounds = 3; // Количество раундов
-        final int RANGE = 100; // Диапазон для генерации числа из условия игры``
+        final int range = 100; // Диапазон для генерации числа из условия игры``
         for (int i = 0; i < nunberOfRounds; i++) {
-            int number = rnd.nextInt(RANGE) + 1; // Переменная условия получает значение от 1 до 1 до maxNumber
+            int number = rnd.nextInt(range) + 1; // Переменная условия получает значение от 1 до 1 до maxNumber
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             String playerAnswer = scanner.nextLine(); // Переменная содержащая ответ игрока

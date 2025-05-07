@@ -12,7 +12,7 @@ public class Prime {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        int range = 100; // Диапазон для генерации числа из условия игры
+        final int range = 100; // Диапазон для генерации числа из условия игры
         int number = rnd.nextInt(range) + 1; // Переменная условия получает значение от 1 до 1 до maxNumber
 
         // проверяем number на простоту
