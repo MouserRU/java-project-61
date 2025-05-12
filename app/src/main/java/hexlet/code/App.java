@@ -16,7 +16,7 @@ public class App {
         String itemNumber = scanner.nextLine();
 
         switch (itemNumber) {
-            case "1" -> Even.greeting();
+            case "1" -> Cli.greeting();
             case "2" -> Even.game();
             case "3" -> Engine.engine("Calc");
             case "4" -> Engine.engine("GCD");

@@ -12,7 +12,7 @@ public class Progression {
     // Метод формирует вопрос и правильный ответ
     public static String question(StringBuilder rightAnswer) {
         SecureRandom rnd = new SecureRandom();
-        final int range = 10; // Диапазон дла получения случайнолго числа
+        final int range = 10; // Диапазон дла получения случайного числа
         final int minLengthProgression = 6; // Минимальная длина прогрессии
         final int lengthProgression = rnd.nextInt(range) + minLengthProgression; // устанавливаем длину
                 // прогрессии 6..15 номеров
