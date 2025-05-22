@@ -9,7 +9,7 @@ public class Prime {
     // Метод генерирует данные игры:
     public  static void generate() {
         // Создание строки с вопросом
-        final String questionLine = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        final String questionLine = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
         // Количество циклов игры
         final int numberOfQuestions = 3;
