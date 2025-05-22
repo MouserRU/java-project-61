@@ -1,30 +1,36 @@
 package hexlet.code;
-import java.util.Scanner;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
-        System.out.print("Your choice: ");
-        Scanner scanner = new Scanner(System.in);
-        String itemNumber = scanner.nextLine();
+        // Выводим список игр
+        Engine.output("""
+                Please enter the game number and press Enter.
+                1 - Greet
+                2 - Even
+                3 - Calc
+                4 - GCD
+                5 - Progression
+                6 - Prime
+                0 - Exit
+                Your choice:\s""");
+        // Получаем с клавиатуры номер из списка
+        String itemNumber = Engine.inputString();
 
         switch (itemNumber) {
-            case "1" -> Cli.greeting();
-            case "2" -> Even.game();
-            case "3" -> Engine.engine("Calc");
-            case "4" -> Engine.engine("GCD");
-            case "5" -> Engine.engine("Progression");
-            case "6" -> Engine.engine("Prime");
-            default -> {
-                return;
-            }
+            case "0" -> Engine.output("Exit" + "\n");
+            case "1" -> Engine.greeting();
+            case "2" -> Even.generate();
+            case "3" -> Calc.generate();
+            case "4" -> Gcd.generate();
+            case "5" -> Progression.generate();
+            case "6" -> Prime.generate();
+            default -> Engine.output("There is no such game." + "\n");
         }
     }
+
 }
