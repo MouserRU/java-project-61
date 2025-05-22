@@ -70,7 +70,7 @@ public class Engine {
                 \nWelcome to the Brain Games!
                 May I have your name?\s""");
         playerName = inputString();
-        output("Hello, " + playerName + "!");
+        output("Hello, " + playerName + "!" + "\n");
         return playerName;
     }
 
