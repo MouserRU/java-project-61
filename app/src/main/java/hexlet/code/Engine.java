@@ -5,7 +5,14 @@ import java.util.Scanner;
 public class Engine {
 
     // Устанавливаем количество циклов игры
-    public static final int numberOfCycles = 3;
+    public static final int NUMBER_OF_CYCLES = 3;
+
+    // Индекс ячейки массива с вопросом
+    public static final int QUESTION = 0;
+
+    // Индекс ячейки массива с ответом
+    public static final int ANSWER = 1;
+
 
     public static void game(String questionLine, String[][] questionsAndAnswers) {
 
@@ -13,19 +20,14 @@ public class Engine {
 
         // Выводим приветствие и получаем имя игрока
         String playerName;
-        System.out.println("\nWelcome to the Brain Games!\n" +
-                "May I have your name?");
+        System.out.println("\nWelcome to the Brain Games!\n"
+                + "May I have your name?");
         playerName = input.nextLine();
         System.out.println("Hello, " + playerName + "!");
 
         // Инициализируем счётчик циклов игры
         int counter = 0;
 
-        // Индекс ячейки массива с вопросом
-        final int question = 0;
-
-        // Индекс ячейки массива с ответом
-        final int answer = 1;
 
         // Инициализируем флаг выигрыша игрока
         boolean isWin;
@@ -36,7 +38,7 @@ public class Engine {
             System.out.println(questionLine);
 
             // Выводим вопрос
-            System.out.println("Question: " + questionsAndAnswers[counter][question]);
+            System.out.println("Question: " + questionsAndAnswers[counter][QUESTION]);
 
             // Выводим приглашение к вводу ответа
             System.out.print("Your answer: ");
@@ -46,21 +48,21 @@ public class Engine {
 
             // Валидация ответа
             // Флаг правильного ответа
-            isWin = playerAnswer.equals(questionsAndAnswers[counter][answer]);
+            isWin = playerAnswer.equals(questionsAndAnswers[counter][ANSWER]);
 
             // Проверка ответа игрока
             if (isWin) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + questionsAndAnswers[counter][answer] + "'.\n" +
-                        "Let's try again, " + playerName + "!");
+                        + questionsAndAnswers[counter][ANSWER] + "'.\n"
+                        + "Let's try again, " + playerName + "!");
                 return;
             }
 
             ++counter;
 
-        } while (counter < numberOfCycles);
+        } while (counter < NUMBER_OF_CYCLES);
 
         // Выводим итоговое сообщение
         System.out.println("Congratulations, " + playerName + "!");

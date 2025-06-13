@@ -11,13 +11,10 @@ public class Calc {
         final String questionLine = "What is the result of the expression?";
 
         // Количество циклов игры
-        final int numberOfQuestions = Engine.numberOfCycles;
+        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
 
         // Объявление массива для хранения вопросов и ответов
         // Второй индекс: 0 - соответствует ячейке с вопросом
-        final int question = 0;
-        // Второй индекс: 1 - соответствует ячейке с ответом
-        final int answer = 1;
 
         // Ёмкость массива вопросов / ответов
         final int capacity = 2;
@@ -67,12 +64,13 @@ public class Calc {
             }
 
             // Заполнение ячейки с вопросом
-            array[question] = number1 + " " + operatorChr + " " + number2;
+            array[Engine.QUESTION] = number1 + " " + operatorChr + " " + number2;
 
             // Получение правильного ответа и помещение его в ячейку массива
             int result;
             result = resultCalculate(number1, number2, operatorChr);
-            array[answer] = String.valueOf(result);
+            array[Engine.ANSWER] = String.valueOf(result);
+
 
         }
 
@@ -81,7 +79,7 @@ public class Calc {
 
     }
 
-    static int resultCalculate ( int num1, int num2, char operator){
+    static int resultCalculate(int num1, int num2, char operator) {
         return switch (operator) {
             case '+' -> num1 + num2;
             case '-' -> num1 - num2;

@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.security.SecureRandom;
+import hexlet.code.Utils;
 
 public class Progression {
 
@@ -12,70 +11,59 @@ public class Progression {
         final String questionLine = "What number is missing in the progression?";
 
         // Количество циклов игры
-        final int numberOfQuestions = 3;
+        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
 
         // Объявление массива для хранения вопросов и ответов
-        // Второй индекс: 0 - соответствует ячейке с вопросом
-        final int question = 0;
-        // Второй индекс: 1 - соответствует ячейке с ответом
-        final int answer = 1;
-
         // Ёмкость массива вопросов / ответов
-        final int capasity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capasity];
+        final int capacity = 2;
+        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
 
-        SecureRandom rnd;
-        rnd = new SecureRandom();
+        // Нижнее значение диапазона
+        final int lowerValueStep = 1;
 
-        // Генерация вопросов и ответов
-        // Диапазон дла получения случайного числа
-        final int range = 10;
+        // Диапазон шага прогрессии
+        // Верхнее значение диапазона
+        final int upperValueStep = 10;
 
         // Минимальная длина прогрессии
         final int minLengthProgression = 6;
 
-        // Диапазон ширины прогрессии
-        final int rangelength = 10;
+        // Длина прогрессии
+        int lengthProgression;
 
-        // Диапазон шага прогрессии
-        final int rangeStep = 10;
+        // Шаг прогрессии
+        int stepProgression;
+
+        // Генерация вопросов и ответов
 
         for (String[] array : questionsAndAnswers) {
 
-            // устанавливаем длину прогрессии
-            int lengthProgression = rnd.nextInt(rangelength) + minLengthProgression;
+            // Устанавливаем длину прогрессии
+            lengthProgression = Utils.intRnd(1, 9) + minLengthProgression;
 
-            // Шаг прогрессии
-            int stepProgression = rnd.nextInt(rangeStep) + 1;
+            // Устанавливаем шаг прогрессии
+            stepProgression = Utils.intRnd(lowerValueStep, upperValueStep);
+
+            // Создаём массив для хранения прогрессии
+            String[] progression = makeArray(lengthProgression, stepProgression);
 
             // Номер искомого числа
-            int sequenceNumber = rnd.nextInt(lengthProgression);
+            int sequenceNumber = Utils.intRnd(0, lengthProgression - 1);
 
-            // Строка хранящая прогрессию
-            StringBuilder stringProgression = new StringBuilder();
+            // Правильный ответ
+            String rightAnswer = progression[sequenceNumber];
 
-            // Инициализируем переменную для сохранения ответа в строковом представлении
-            String rightAnswer = "";
+            // Заменяем число в массиве на точки
+            progression[sequenceNumber] = "..";
 
-            // Задаём первое число прогрессии
-            int number = rnd.nextInt(range);
-
-            for (int i = 0; i < lengthProgression; i++) {
-                if (i != sequenceNumber) {
-                    stringProgression.append(number).append(" ");
-                    number += stepProgression;
-                } else {
-                    stringProgression.append(".. ");
-                    rightAnswer = String.valueOf(number);
-                    number += stepProgression;
-                }
-            }
+            // Склеиваем массив в строку
+            String stringProgression = String.join(" ", progression);
 
             // Заполнение ячейки с вопросом
-            array[question] = stringProgression.toString();
+            array[Engine.QUESTION] = stringProgression;
 
             // Заполнение ячейки с ответом
-            array[answer] = rightAnswer;
+            array[Engine.ANSWER] = rightAnswer;
         }
 
         // Вызываем Игровой движок
@@ -83,40 +71,20 @@ public class Progression {
 
     }
 
-}
+    static String[] makeArray(int lengthProgression, int stepProgression) {
 
-/*
+        // Задаём первое число прогрессии
+        int number = Utils.intRnd(0, 10);
 
-public class Progression {
+        // Создаём массив для хранения прогрессии
+        String[] progression = new String[lengthProgression];
 
-    // Метод возвращает условие игры
-    public static String introductoryNote() { // Метод получает параметр содержащий имя игры
-        return "What number is missing in the progression?";
-    }
-
-    // Метод формирует вопрос и правильный ответ
-    public static String question(StringBuilder rightAnswer) {
-        SecureRandom rnd = new SecureRandom();
-        final int range = 10; // Диапазон дла получения случайного числа
-        final int minLengthProgression = 6; // Минимальная длина прогрессии
-        final int lengthProgression = rnd.nextInt(range) + minLengthProgression; // устанавливаем длину
-                // прогрессии 6..15 номеров
-        final int stepProgression = rnd.nextInt(range) + 1; // Шаг прогрессии
-        int sequenceNumber = rnd.nextInt(lengthProgression); // Порядковый номер искомого числа
-        StringBuilder stringProgression = new StringBuilder(); // Строка хранящая прогрессию
-        int number = rnd.nextInt(range); // Задаём первое число прогрессии
         for (int i = 0; i < lengthProgression; i++) {
-            if (i != sequenceNumber) {
-                stringProgression.append(number).append(" ");
-                number += stepProgression;
-            } else {
-                stringProgression.append(".. ");
-                rightAnswer.append(number);
-                number += stepProgression;
-            }
+            progression[i] = Integer.toString(number);
+            number += stepProgression;
         }
-        return stringProgression.toString();
-    }
-}
 
-*/
+        return progression;
+    }
+
+}

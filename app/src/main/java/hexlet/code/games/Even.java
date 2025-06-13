@@ -11,14 +11,9 @@ public class Even {
         final String questionLine = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
         // Количество циклов игры
-        final int numberOfQuestions = Engine.numberOfCycles;
+        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
 
         // Объявление массива для хранения вопросов и ответов
-        // Первый индекс: 0 - соответствует ячейке с вопросом
-        final int question = 0;
-        // Первый индекс: 1 - соответствует ячейке с ответом
-        final int answer = 1;
-
         // Массив для хранения вопросов и ответов
         // Ёмкость массива вопросов / ответов
         final int capacity = 2;
@@ -33,10 +28,10 @@ public class Even {
             int number = Utils.intRnd(lowerValue, upperValue);
 
             // Заполнение ячейки с вопросом
-            array[question] = String.valueOf(number);
+            array[Engine.QUESTION] = String.valueOf(number);
 
             // Заполнение ячейки с ответом
-            array[answer] = number % 2 == 0 ? "yes" : "no";
+            array[Engine.ANSWER] = number % 2 == 0 ? "yes" : "no";
         }
 
         // Вызываем Игровой движок

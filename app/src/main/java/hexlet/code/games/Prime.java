@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.security.SecureRandom;
+import hexlet.code.Utils;
 
 public class Prime {
 
@@ -12,33 +11,30 @@ public class Prime {
         final String questionLine = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
         // Количество циклов игры
-        final int numberOfQuestions = 3;
+        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
 
         // Объявление массива для хранения вопросов и ответов
-        // Второй индекс: 0 - соответствует ячейке с вопросом
-        final int question = 0;
-        // Второй индекс: 1 - соответствует ячейке с ответом
-        final int answer = 1;
-
         // Ёмкость массива для вопросов / ответов
-        final int capasity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capasity];
-
-        SecureRandom rnd;
-        rnd = new SecureRandom();
+        final int capacity = 2;
+        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
 
         // Генерация вопросов и ответов
-        final int range = 100; // Диапазон для генерации числа из условия игры
+        // Нижняя граница диапазона
+        final int lowerValue = 1;
+
+        // Верхняя граница диапазона
+        final int upperValue = 100;
+
         for (String[] array : questionsAndAnswers) {
 
             // Переменная условия получает значение от 1 до 100
-            int number = rnd.nextInt(range) + 1;
+            int number = Utils.intRnd(lowerValue, upperValue);
 
             // Заполнение ячейки с вопросом
-            array[question] = String.valueOf(number);
+            array[Engine.QUESTION] = String.valueOf(number);
 
             // Заполнение ячейки с ответом
-            array[answer] = isPrime(number) ? "yes" : "no";
+            array[Engine.ANSWER] = isPrime(number) ? "yes" : "no";
         }
 
         // Вызываем Игровой движок
