@@ -1,6 +1,7 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
-import java.security.SecureRandom;
+import hexlet.code.Utils;
 
 public class Even {
 
@@ -10,7 +11,7 @@ public class Even {
         final String questionLine = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
         // Количество циклов игры
-        final int numberOfQuestions = 3;
+        final int numberOfQuestions = Engine.numberOfCycles;
 
         // Объявление массива для хранения вопросов и ответов
         // Первый индекс: 0 - соответствует ячейке с вопросом
@@ -20,16 +21,16 @@ public class Even {
 
         // Массив для хранения вопросов и ответов
         // Ёмкость массива вопросов / ответов
-        final int capasity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capasity];
-
-        SecureRandom rnd;
-        rnd = new SecureRandom();
+        final int capacity = 2;
+        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
 
         // Генерация вопросов и ответов
-        final int range = 100; // Диапазон для генерации числа из условия игры
+        // Нижнее значение диапазона
+        final int lowerValue = 1;
+        // Верхнее значение диапазона
+        final int upperValue = 100;
         for (String[] array : questionsAndAnswers) {
-            int number = rnd.nextInt(range);
+            int number = Utils.intRnd(lowerValue, upperValue);
 
             // Заполнение ячейки с вопросом
             array[question] = String.valueOf(number);

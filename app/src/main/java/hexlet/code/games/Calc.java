@@ -1,16 +1,17 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
-import java.security.SecureRandom;
+import hexlet.code.Utils;
 
 public class Calc {
-
     // Метод генерирует данные игры:
-    public  static void generate() {
+    public static void generate() {
+
         // Создание строки с вопросом
         final String questionLine = "What is the result of the expression?";
 
         // Количество циклов игры
-        final int numberOfQuestions = 3;
+        final int numberOfQuestions = Engine.numberOfCycles;
 
         // Объявление массива для хранения вопросов и ответов
         // Второй индекс: 0 - соответствует ячейке с вопросом
@@ -19,66 +20,73 @@ public class Calc {
         final int answer = 1;
 
         // Ёмкость массива вопросов / ответов
-        final int capasity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capasity];
-
-        SecureRandom rnd;
-        rnd = new SecureRandom();
+        final int capacity = 2;
+        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
 
         // Генерация вопросов и ответов
-        final int range1 = 21; // Диапазон для генерации числа из условия игры для операции умножения
-        final int offset1 = -10; // Смещение числа в минус для операции умножения
-        final int range2 = 201; // Диапазон для генерации числа из условия игры для операций сложения и вычитания
-        final int offset2 = -100; // Смещение числа в минус для операций сложения и вычтания
+        final int lowerValueForMultiplication = -10;
+        final int upperValueForMultiplication = 10;
+        final int lowerValueForOtherOrations = -100;
+        final int upperValueForOtherOrations = 100;
         final int numberOfMath = 3; // Число математических операций
-        final String operators = "+-*"; // Строка с возможными математическими операторами
-        final int add = 0; // Индекс символа оператора сложения в operators
-        final int sub = 1; // Индекс символа оператора вычитания в operators
-        final int mult = 2; // Индекс символа оператора умножения в operators
-
 
         for (String[] array : questionsAndAnswers) {
 
             // Получаем номер математического оператора
-            int operator = rnd.nextInt(numberOfMath);
+            int operator = Utils.intRnd(numberOfMath);
 
             // Получаем символьное представление математического оператора
             char operatorChr;
-            operatorChr = operators.charAt(operator);
+
+            operatorChr = switch (operator) {
+                case 0 -> '+';
+                case 1 -> '-';
+                default -> '*';
+            };
 
             // Получаем числа для математических операций
             int number1;
             int number2;
             if (operator == 2) {
-                number1 = rnd.nextInt(range1) + offset1; // получение первого числа в диапазоне от -10 до 10 для
-                // операции умножения
-                number2 = rnd.nextInt(range1) + offset1; // получение второго числа в диапазоне от -10 до 10 для
-                // операции умножения
+                do {
+                    // получение первого числа для операции умножения
+                    number1 = Utils.intRnd(lowerValueForMultiplication, upperValueForMultiplication);
+
+                    // получение второго числа для операции умножения
+                    number2 = Utils.intRnd(lowerValueForMultiplication, upperValueForMultiplication);
+                } while (number1 == 0 || number2 == 0);
+
             } else {
-                number1 = rnd.nextInt(range2) + offset2; // получение первого числа в диапазоне от -100 до 100 для
-                // операций сложения и вычитания
-                number2 = rnd.nextInt(range2) + offset2; // получение второго числа в диапазоне от -100 до 100 для
-                // операций сложения и вычитания
+                do {
+                    // получение первого числа для операций сложения и вычитания
+                    number1 = Utils.intRnd(lowerValueForOtherOrations, upperValueForOtherOrations);
+
+                    // получение второго числа для операций сложения и вычитания
+                    number2 = Utils.intRnd(lowerValueForOtherOrations, upperValueForOtherOrations);
+                } while (number1 == 0 || number2 == 0);
             }
 
             // Заполнение ячейки с вопросом
             array[question] = number1 + " " + operatorChr + " " + number2;
 
             // Получение правильного ответа и помещение его в ячейку массива
-            if (operator == add) {
-                array[answer] = String.valueOf(number1 + number2);
-            }
-            if (operator == sub) {
-                array[answer] = String.valueOf(number1 - number2);
-            }
-            if (operator == mult) {
-                array[answer] = String.valueOf(number1 * number2);
-            }
+            int result;
+            result = resultCalculate(number1, number2, operatorChr);
+            array[answer] = String.valueOf(result);
+
         }
 
         // Вызываем Игровой движок
         Engine.game(questionLine, questionsAndAnswers);
 
+    }
+
+    static int resultCalculate ( int num1, int num2, char operator){
+        return switch (operator) {
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            default -> num1 * num2;
+        };
     }
 
 }

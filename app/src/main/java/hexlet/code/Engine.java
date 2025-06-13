@@ -4,15 +4,19 @@ import java.util.Scanner;
 
 public class Engine {
 
+    // Устанавливаем количество циклов игры
+    public static final int numberOfCycles = 3;
+
     public static void game(String questionLine, String[][] questionsAndAnswers) {
 
         Scanner input = new Scanner(System.in);
 
         // Выводим приветствие и получаем имя игрока
-        String playerName = greeting();
-
-        // Получаем количество циклов игры
-        int numberOfCycles = questionsAndAnswers.length;
+        String playerName;
+        System.out.println("\nWelcome to the Brain Games!\n" +
+                "May I have your name?");
+        playerName = input.nextLine();
+        System.out.println("Hello, " + playerName + "!");
 
         // Инициализируем счётчик циклов игры
         int counter = 0;
@@ -32,10 +36,10 @@ public class Engine {
             System.out.println(questionLine);
 
             // Выводим вопрос
-            output("Question: " + questionsAndAnswers[counter][question] + "\n");
+            System.out.println("Question: " + questionsAndAnswers[counter][question]);
 
             // Выводим приглашение к вводу ответа
-            output("Your answer: ");
+            System.out.print("Your answer: ");
 
             // Получаем ответ игрока
             String playerAnswer = input.nextLine();
@@ -46,11 +50,12 @@ public class Engine {
 
             // Проверка ответа игрока
             if (isWin) {
-                output("Correct!" + "\n");
+                System.out.println("Correct!");
             } else {
-                output("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + questionsAndAnswers[counter][answer] + "'.\n");
-                break;
+                System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + questionsAndAnswers[counter][answer] + "'.\n" +
+                        "Let's try again, " + playerName + "!");
+                return;
             }
 
             ++counter;
@@ -58,30 +63,8 @@ public class Engine {
         } while (counter < numberOfCycles);
 
         // Выводим итоговое сообщение
-        String string = isWin ? "Congratulations, " + playerName + "!" : "Let's try again, " + playerName + "!";
-        output(string);
+        System.out.println("Congratulations, " + playerName + "!");
 
     }
 
-    // Вывод приветствия и получение имени игрока
-    static String greeting() {
-        String playerName;
-        output("""
-                \nWelcome to the Brain Games!
-                May I have your name?\s""");
-        playerName = inputString();
-        output("Hello, " + playerName + "!" + "\n");
-        return playerName;
-    }
-
-    // Метод для вывода строки
-    static void output(String string) {
-        System.out.print(string);
-    }
-
-    // Метод для ввода строки
-    static String inputString() {
-        Scanner input = new Scanner(System.in);
-        return input.nextLine();
-    }
 }
