@@ -39,7 +39,11 @@ public class Progression {
         for (String[] array : questionsAndAnswers) {
 
             // Устанавливаем длину прогрессии
-            lengthProgression = Utils.intRnd(1, 9) + minLengthProgression;
+            // Нижняя граница диапазона
+            final int lowerLimitRange = 1;
+            // Верхняя граница диапазона
+            final int upperLimitRange = 9;
+            lengthProgression = Utils.intRnd(lowerLimitRange, upperLimitRange) + minLengthProgression;
 
             // Устанавливаем шаг прогрессии
             stepProgression = Utils.intRnd(lowerValueStep, upperValueStep);
@@ -74,7 +78,11 @@ public class Progression {
     static String[] makeArray(int lengthProgression, int stepProgression) {
 
         // Задаём первое число прогрессии
-        int number = Utils.intRnd(0, 10);
+        // Нижняя граница диапазона
+        final int lowerLimitRange = 0;
+        // Верхняя граница диапазона
+        final int upperLimitRange = 10;
+        int number = Utils.intRnd(lowerLimitRange, upperLimitRange);
 
         // Создаём массив для хранения прогрессии
         String[] progression = new String[lengthProgression];
