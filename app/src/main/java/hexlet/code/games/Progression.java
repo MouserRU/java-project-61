@@ -10,13 +10,10 @@ public class Progression {
         // Создание строки с вопросом
         final String questionLine = "What number is missing in the progression?";
 
-        // Количество циклов игры
-        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
-
         // Объявление массива для хранения вопросов и ответов
         // Ёмкость массива вопросов / ответов
         final int capacity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_CYCLES][capacity];
 
         // Нижнее значение диапазона
         final int lowerValueStep = 1;
@@ -49,7 +46,13 @@ public class Progression {
             stepProgression = Utils.intRnd(lowerValueStep, upperValueStep);
 
             // Создаём массив для хранения прогрессии
-            String[] progression = makeArray(lengthProgression, stepProgression);
+            // Нижняя граница диапазона
+            final int lowerLimitRangeOfNumber = 0;
+            // Верхняя граница диапазона
+            final int upperLimitRangeOfNumber = 10;
+            // Задаём первое число прогрессии
+            int number = Utils.intRnd(lowerLimitRangeOfNumber, upperLimitRangeOfNumber);
+            String[] progression = makeArray(number, lengthProgression, stepProgression);
 
             // Номер искомого числа
             int sequenceNumber = Utils.intRnd(0, lengthProgression - 1);
@@ -75,15 +78,7 @@ public class Progression {
 
     }
 
-    static String[] makeArray(int lengthProgression, int stepProgression) {
-
-        // Задаём первое число прогрессии
-        // Нижняя граница диапазона
-        final int lowerLimitRange = 0;
-        // Верхняя граница диапазона
-        final int upperLimitRange = 10;
-        int number = Utils.intRnd(lowerLimitRange, upperLimitRange);
-
+    static String[] makeArray(int number, int lengthProgression, int stepProgression) {
         // Создаём массив для хранения прогрессии
         String[] progression = new String[lengthProgression];
 
