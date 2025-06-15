@@ -34,7 +34,8 @@ public class App {
             case "4" -> Gcd.generate();
             case "5" -> Progression.generate();
             case "6" -> Prime.generate();
-            default -> System.out.println("There is no such game." + "\n");
+            default -> System.out.println("The number \"" + itemNumber
+                    + "\" you entered refers to a non-existent item in the game menu." + "\n");
         }
     }
 
