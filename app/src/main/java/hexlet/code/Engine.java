@@ -25,20 +25,17 @@ public class Engine {
         playerName = input.nextLine();
         System.out.println("Hello, " + playerName + "!");
 
-        // Инициализируем счётчик циклов игры
-        int counter = 0;
-
-
         // Инициализируем флаг выигрыша игрока
         boolean isWin;
 
-        // Игровой цикл
-        do {
-            //Выводим строу с заданием игры
+        // Игровой цикл, количество проходов определено константой NUMBER_OF_CYCLES
+        for (String[] questionAndAnswer : questionsAndAnswers) {
+
+            //Выводим строку с заданием игры
             System.out.println(questionLine);
 
             // Выводим вопрос
-            System.out.println("Question: " + questionsAndAnswers[counter][QUESTION]);
+            System.out.println("Question: " + questionAndAnswer[QUESTION]);
 
             // Выводим приглашение к вводу ответа
             System.out.print("Your answer: ");
@@ -48,21 +45,18 @@ public class Engine {
 
             // Валидация ответа
             // Флаг правильного ответа
-            isWin = playerAnswer.equals(questionsAndAnswers[counter][ANSWER]);
+            isWin = playerAnswer.equals(questionAndAnswer[ANSWER]);
 
             // Проверка ответа игрока
             if (isWin) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + playerAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + questionsAndAnswers[counter][ANSWER] + "'.\n"
+                        + questionAndAnswer[ANSWER] + "'.\n"
                         + "Let's try again, " + playerName + "!");
                 return;
             }
-
-            ++counter;
-
-        } while (counter < NUMBER_OF_CYCLES);
+        }
 
         // Выводим итоговое сообщение
         System.out.println("Congratulations, " + playerName + "!");
