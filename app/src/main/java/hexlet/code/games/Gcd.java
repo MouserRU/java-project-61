@@ -11,14 +11,11 @@ public class Gcd {
         // Создание строки с вопросом
         final String questionLine = "Find the greatest common divisor of given numbers.";
 
-        // Количество циклов игры
-        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
-
         // Объявление массива для хранения вопросов и ответов
         // Массив для хранения вопросов и ответов
         // Индекс для вопросов / ответов
         final int capacity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_CYCLES][capacity];
 
         // Диапазон для генерации числа из условия игры
         final int range = 10;

@@ -10,14 +10,11 @@ public class Even {
         // Создание строки с вопросом
         final String questionLine = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-        // Количество циклов игры
-        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
-
         // Объявление массива для хранения вопросов и ответов
         // Массив для хранения вопросов и ответов
         // Ёмкость массива вопросов / ответов
         final int capacity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_CYCLES][capacity];
 
         // Генерация вопросов и ответов
         // Нижнее значение диапазона
