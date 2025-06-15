@@ -10,13 +10,10 @@ public class Prime {
         // Создание строки с вопросом
         final String questionLine = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        // Количество циклов игры
-        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
-
         // Объявление массива для хранения вопросов и ответов
         // Ёмкость массива для вопросов / ответов
         final int capacity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_CYCLES][capacity];
 
         // Генерация вопросов и ответов
         // Нижняя граница диапазона
@@ -44,6 +41,12 @@ public class Prime {
 
     // Проверяем number на простоту
     static boolean isPrime(int number) {
+        // По определению, простое число всегда больше 1
+        if (number <= 1) {
+            return false;
+        }
+
+        // И делится только на 1 и само себя
         boolean isPrime = true;
         for (int i = 2; i <= (int) Math.sqrt(number); i++) {
             if (number % i == 0) {
