@@ -10,15 +10,12 @@ public class Calc {
         // Создание строки с вопросом
         final String questionLine = "What is the result of the expression?";
 
-        // Количество циклов игры
-        final int numberOfQuestions = Engine.NUMBER_OF_CYCLES;
-
         // Объявление массива для хранения вопросов и ответов
         // Второй индекс: 0 - соответствует ячейке с вопросом
 
         // Ёмкость массива вопросов / ответов
         final int capacity = 2;
-        String[][] questionsAndAnswers = new String[numberOfQuestions][capacity];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_CYCLES][capacity];
 
         // Генерация вопросов и ответов
         final int lowerValueForMultiplication = -10;
@@ -30,7 +27,7 @@ public class Calc {
         for (String[] array : questionsAndAnswers) {
 
             // Получаем номер математического оператора
-            int operator = Utils.intRnd(numberOfMath);
+            int operator = Utils.intRnd(numberOfMath - 1);
 
             // Получаем символьное представление математического оператора
             char operatorChr;
@@ -38,7 +35,8 @@ public class Calc {
             operatorChr = switch (operator) {
                 case 0 -> '+';
                 case 1 -> '-';
-                default -> '*';
+                case 2 -> '*';
+                default -> throw new RuntimeException("Unknown operator " + operator);
             };
 
             // Получаем числа для математических операций
