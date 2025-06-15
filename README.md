@@ -1,6 +1,18 @@
 ### java-package
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
+### Название: Игры разума
+
+Описание: Простое приложение на Java, демонстрирующее базовые методы программирования и логические конструкции языка.
+
+Включает пять мини-игр: проверку числа на чётность, определение простого числа, простой калькулятор, игру на прогрессии и вычисление наибольшего общего делителя (НОД).
+
+Цель: Показать понимание базовых концепций и методов Java, включая циклы, условия, ввод-вывод и обработку чисел.
+
+Особенности: Минималистичный интерфейс командной строки, возможность выбора игры, простая логика проверки ввода.
+
+Навыки, продемонстрированные проектом: работа с консольным выводом, создание простых алгоритмов, использование стандартных библиотек Java.
+
+
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MouserRU_java-project-61&metric=bugs)](https://sonarcloud.io/summary/new_code?id=MouserRU_java-project-61)
 
