@@ -29,7 +29,7 @@
 ### asciinema demo files:
 [Игра Even](https://asciinema.org/a/717955)
 
-[Игра Calc](https://asciinema.org/a/717956)
+[Игра Calc](https://asciinema.org/a/723407)
 
 [Игра CGD](https://asciinema.org/a/717960)
 
