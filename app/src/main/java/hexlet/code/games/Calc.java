@@ -18,10 +18,11 @@ public class Calc {
         String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_CYCLES][capacity];
 
         // Генерация вопросов и ответов
-        final int lowerValueForMultiplication = -10;
+        final int lowerValueForMultiplication = 1;
         final int upperValueForMultiplication = 10;
-        final int lowerValueForOtherOrations = -100;
+        final int lowerValueForOtherOrations = 1;
         final int upperValueForOtherOrations = 100;
+
         final int numberOfMath = 3; // Число математических операций
 
         for (String[] array : questionsAndAnswers) {
@@ -43,30 +44,23 @@ public class Calc {
             int number1;
             int number2;
             if (operator == 2) {
-                do {
-                    // получение первого числа для операции умножения
-                    number1 = Utils.intRnd(lowerValueForMultiplication, upperValueForMultiplication);
-
-                    // получение второго числа для операции умножения
-                    number2 = Utils.intRnd(lowerValueForMultiplication, upperValueForMultiplication);
-                } while (number1 == 0 || number2 == 0);
+                // получение первого числа для операции умножения
+                number1 = Utils.intRnd(lowerValueForMultiplication, upperValueForMultiplication);
+                // получение второго числа для операции умножения
+                number2 = Utils.intRnd(lowerValueForMultiplication, upperValueForMultiplication);
 
             } else {
-                do {
-                    // получение первого числа для операций сложения и вычитания
-                    number1 = Utils.intRnd(lowerValueForOtherOrations, upperValueForOtherOrations);
-
-                    // получение второго числа для операций сложения и вычитания
-                    number2 = Utils.intRnd(lowerValueForOtherOrations, upperValueForOtherOrations);
-                } while (number1 == 0 || number2 == 0);
+                // получение первого числа для операций сложения и вычитания
+                number1 = Utils.intRnd(lowerValueForOtherOrations, upperValueForOtherOrations);
+                // получение второго числа для операций сложения и вычитания
+                number2 = Utils.intRnd(lowerValueForOtherOrations, upperValueForOtherOrations);
             }
 
             // Заполнение ячейки с вопросом
             array[Engine.QUESTION] = number1 + " " + operatorChr + " " + number2;
 
             // Получение правильного ответа и помещение его в ячейку массива
-            int result;
-            result = resultCalculate(number1, number2, operatorChr);
+            int result = resultCalculate(number1, number2, operatorChr);
             array[Engine.ANSWER] = String.valueOf(result);
 
 
@@ -77,11 +71,12 @@ public class Calc {
 
     }
 
-    static int resultCalculate(int num1, int num2, char operator) {
-        return switch (operator) {
+    static int resultCalculate(int num1, int num2, char operatorChr) {
+        return switch (operatorChr) {
             case '+' -> num1 + num2;
             case '-' -> num1 - num2;
-            default -> num1 * num2;
+            case '*' -> num1 * num2;
+            default -> throw new RuntimeException("Unknown operator " + operatorChr);
         };
     }
 
